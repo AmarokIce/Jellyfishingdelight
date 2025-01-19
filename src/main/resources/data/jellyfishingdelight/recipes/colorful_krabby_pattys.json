@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "jellyfishingdelight:red_krabby_patty"
+    },
+    {
+      "item": "jellyfishingdelight:orange_krabby_patty"
+    },
+    {
+      "item": "jellyfishingdelight:yellow_krabby_patty"
+    },
+    {
+      "item": "jellyfishingdelight:green_krabby_patty"
+    },
+    {
+      "item": "jellyfishingdelight:blue_krabby_patty"
+    },
+    {
+      "item": "jellyfishingdelight:purple_krabby_patty"
+    }
+  ],
+  "result": {
+    "item": "jellyfishingdelight:colorful_krabby_pattys"
+  }
+}

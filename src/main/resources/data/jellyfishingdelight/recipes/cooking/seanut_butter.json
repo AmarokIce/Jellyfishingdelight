@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "jellyfishing:seanut"
+    },
+    {
+        "tag": "forge:milk"
+    }
+  ],
+  "result": {
+    "item": "jellyfishing:seanut_butter",
+    "count": 2
+  }
+}

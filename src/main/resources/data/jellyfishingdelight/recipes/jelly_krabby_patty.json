@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    {
+      "item": "jellyfishing:krabby_patty"
+    },
+    {
+      "item": "jellyfishing:jellyfish_jelly"
+    }
+  ],
+  "result": {
+    "item": "jellyfishingdelight:jelly_krabby_patty"
+  }
+}

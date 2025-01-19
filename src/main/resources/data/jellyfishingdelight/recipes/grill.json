@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "MGM",
+    "MLM"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "M": {
+      "item": "jellyfishing:scrap_metal"
+    },
+    "G": {
+      "item": "jellyfishing:grease_ball"
+    },
+    "L": {
+      "item": "minecraft:magma_block"
+    }
+  },
+  "result": {
+    "item": "jellyfishingdelight:grill"
+  }
+}

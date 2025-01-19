@@ -1,0 +1,14 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "jellyfishing:jellyfish"
+    }
+  ],
+  "result": {
+    "item": "jellyfishing:jellyfish_jelly",
+    "count": 3
+  }
+}

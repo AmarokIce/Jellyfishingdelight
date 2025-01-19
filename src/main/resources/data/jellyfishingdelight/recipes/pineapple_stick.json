@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "jellyfishing:pineapple"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "tag": "forge:tools/knives"
+    }
+  ],
+  "result": {
+    "item": "jellyfishingdelight:pineapple_stick"
+  }
+}

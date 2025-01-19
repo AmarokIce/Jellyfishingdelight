@@ -1,0 +1,25 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "jellyfishing:coral_plant"
+    },
+    {
+      "item": "jellyfishing:tube_plant"
+    },
+    {
+      "item": "jellyfishing:algae_block"
+    },
+    {
+      "item": "jellyfishingdelight:choped_tube_plant"
+    }
+  ],
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "result": {
+    "item": "jellyfishingdelight:croal_stew"
+  }
+}

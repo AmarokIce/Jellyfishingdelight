@@ -1,0 +1,25 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "jellyfishingdelight:deepasta"
+    },
+    {
+      "item": "jellyfishing:lantern_plant"
+    },
+    {
+      "item": "jellyfishing:deep_sand"
+    },
+    {
+      "item": "jellyfishingdelight:choped_lantern_plant"
+    }
+  ],
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "result": {
+    "item": "jellyfishingdelight:rock_stew"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "jellyfishingdelight:deepasta"
+    },
+    {
+      "item": "jellyfishing:lantern_plant"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:ink_sac"
+    }
+  ],
+  "result": {
+    "item": "jellyfishingdelight:deepasta_with_lantern_plant_chop"
+  }
+}

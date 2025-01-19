@@ -1,0 +1,16 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "jellyfishing:lantern_plant"
+    }
+  ],
+  "container": {
+    "item": "minecraft:stick"
+  },
+  "result": {
+    "item": "jellyfishingdelight:lantern_plant_stick"
+  }
+}

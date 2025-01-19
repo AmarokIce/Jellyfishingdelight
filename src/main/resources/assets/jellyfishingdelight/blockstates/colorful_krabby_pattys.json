@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "color=6": {
+      "model": "jellyfishingdelight:block/colorful_krabby_pattys_block"
+    },
+    "color=5": {
+      "model": "jellyfishingdelight:block/colorful_krabby_pattys_block_0"
+    },
+    "color=4": {
+      "model": "jellyfishingdelight:block/colorful_krabby_pattys_block_1"
+    },
+    "color=3": {
+      "model": "jellyfishingdelight:block/colorful_krabby_pattys_block_2"
+    },
+    "color=2": {
+      "model": "jellyfishingdelight:block/colorful_krabby_pattys_block_3"
+    },
+    "color=1": {
+      "model": "jellyfishingdelight:block/colorful_krabby_pattys_block_4"
+    },
+    "color=0": {
+      "model": "jellyfishingdelight:block/colorful_krabby_pattys_block_5"
+    }
+  }
+}

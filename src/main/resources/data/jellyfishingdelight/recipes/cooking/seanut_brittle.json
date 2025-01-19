@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "jellyfishing:seanut_butter"
+    },
+    {
+      "tag": "jellyfishing:roasted_seanut"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "jellyfishing:seanut_brittle"
+  }
+}

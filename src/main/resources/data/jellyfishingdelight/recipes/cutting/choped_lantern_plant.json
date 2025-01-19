@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "jellyfishing:lantern_plant"
+    }
+  ],
+  "result": [
+    {
+      "item": "jellyfishingdelight:choped_lantern_plant",
+      "count": 2
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

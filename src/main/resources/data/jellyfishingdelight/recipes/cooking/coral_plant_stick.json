@@ -1,0 +1,16 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "jellyfishing:coral_plant"
+    }
+  ],
+  "container": {
+    "item": "minecraft:stick"
+  },
+  "result": {
+    "item": "jellyfishingdelight:coral_plant_stick"
+  }
+}

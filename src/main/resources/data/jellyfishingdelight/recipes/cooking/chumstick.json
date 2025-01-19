@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "jellyfishingdelight:chum_bucket"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "container": {
+    "item": "minecraft:bone"
+  },
+  "result": {
+    "item": "jellyfishingdelight:chumstick",
+    "count": 2
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "jellyfishingdelight:item/deepasta_with_lantern_plant_chop"
+    }
+}

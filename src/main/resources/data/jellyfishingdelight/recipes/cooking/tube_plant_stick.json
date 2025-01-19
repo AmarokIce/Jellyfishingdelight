@@ -1,0 +1,16 @@
+{KE
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "jellyfishing:tube_plant"
+    }
+  ],
+  "container": {
+    "item": "minecraft:stick"
+  },
+  "result": {
+    "item": "jellyfishingdelight:tube_plant_stick"
+  }
+}

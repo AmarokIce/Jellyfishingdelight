@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "jellyfishing:roasted_seanut"
+    }
+  ],
+  "result": [
+    {
+      "item": "jellyfishingdelight:choped_seanut",
+      "count": 2
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

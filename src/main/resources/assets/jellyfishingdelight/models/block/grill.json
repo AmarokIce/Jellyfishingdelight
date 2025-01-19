@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "jellyfishingdelight:block/grill_bottom",
+    "front": "jellyfishingdelight:block/grill_front",
+    "side": "jellyfishingdelight:block/grill_side",
+    "top": "jellyfishingdelight:block/grill_top"
+  }
+}
