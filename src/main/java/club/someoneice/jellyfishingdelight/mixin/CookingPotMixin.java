@@ -19,6 +19,7 @@ public abstract class CookingPotMixin {
     @Shadow(remap = false) private int cookTime;
     @Shadow(remap = false) private int cookTimeTotal;
     @Shadow(remap = false) private ItemStack mealContainerStack;
+
     @Shadow(remap = false) protected abstract void ejectIngredientRemainder(ItemStack remainderStack);
 
     @Inject(method = "processCooking", at = @At("HEAD"), remap = false, cancellable = true)

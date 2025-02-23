@@ -18,7 +18,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import vectorwing.farmersdelight.common.block.CookingPotBlock;
 import vectorwing.farmersdelight.common.block.SkilletBlock;
 import vectorwing.farmersdelight.common.block.entity.SkilletBlockEntity;
 import vectorwing.farmersdelight.common.registry.ModSounds;
@@ -32,7 +31,6 @@ public abstract class SkilletMixin {
     @Shadow(remap = false) private int cookingTime;
     @Shadow(remap = false) private int cookingTimeTotal;
     @Shadow(remap = false) private int fireAspectLevel;
-    @Shadow(remap = false) private ResourceLocation lastRecipeID;
 
     @Shadow(remap = false) protected abstract Optional<CampfireCookingRecipe> getMatchingRecipe(Container recipeWrapper);
 
@@ -42,7 +40,7 @@ public abstract class SkilletMixin {
     private static void reCookingTick(Level level, BlockPos pos, BlockState state, SkilletBlockEntity thiz, CallbackInfo ci) {
         var world = thiz.getLevel();
         if (Objects.isNull(world)
-                || !thiz.getBlockState().getValue(CookingPotBlock.WATERLOGGED)
+                || !thiz.getBlockState().getValue(SkilletBlock.WATERLOGGED)
                 || !world.getBlockState(thiz.getBlockPos().below()).is(BlockList.GRILL.get())) {
             return;
         }
@@ -67,13 +65,13 @@ public abstract class SkilletMixin {
 
         var world = thiz.getLevel();
         if (Objects.isNull(world)
-                || !thiz.getBlockState().getValue(CookingPotBlock.WATERLOGGED)
+                || !thiz.getBlockState().getValue(SkilletBlock.WATERLOGGED)
                 || !world.getBlockState(thiz.getBlockPos().below()).is(BlockList.GRILL.get())) {
             return;
         }
 
         Optional<CampfireCookingRecipe> recipe = this.getMatchingRecipe(new SimpleContainer(addedStack));
-        if (!recipe.isPresent()) {
+        if (recipe.isEmpty()) {
             player.displayClientMessage(TextUtils.getTranslation("block.skillet.invalid_item"), true);
             cir.setReturnValue(addedStack);
         }
