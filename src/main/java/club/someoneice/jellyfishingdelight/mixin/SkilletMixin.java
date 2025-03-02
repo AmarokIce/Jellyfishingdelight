@@ -2,7 +2,6 @@ package club.someoneice.jellyfishingdelight.mixin;
 
 import club.someoneice.jellyfishingdelight.core.BlockList;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -39,8 +38,11 @@ public abstract class SkilletMixin {
     @Inject(method = "cookingTick", at = @At("HEAD"), remap = false, cancellable = true)
     private static void reCookingTick(Level level, BlockPos pos, BlockState state, SkilletBlockEntity thiz, CallbackInfo ci) {
         var world = thiz.getLevel();
+
+        var opt = thiz.getBlockState().getOptionalValue(SkilletBlock.WATERLOGGED);
+
         if (Objects.isNull(world)
-                || !thiz.getBlockState().getValue(SkilletBlock.WATERLOGGED)
+                || opt.isEmpty() || !opt.get()
                 || !world.getBlockState(thiz.getBlockPos().below()).is(BlockList.GRILL.get())) {
             return;
         }
@@ -63,12 +65,15 @@ public abstract class SkilletMixin {
     public void reAddItemToCook(ItemStack addedStack, final Player player, final CallbackInfoReturnable<ItemStack> cir) {
         SkilletBlockEntity thiz = (SkilletBlockEntity)(Object)this;
 
+        var opt = thiz.getBlockState().getOptionalValue(SkilletBlock.WATERLOGGED);
+
         var world = thiz.getLevel();
         if (Objects.isNull(world)
-                || !thiz.getBlockState().getValue(SkilletBlock.WATERLOGGED)
+                || opt.isEmpty() || !opt.get()
                 || !world.getBlockState(thiz.getBlockPos().below()).is(BlockList.GRILL.get())) {
             return;
         }
+
 
         Optional<CampfireCookingRecipe> recipe = this.getMatchingRecipe(new SimpleContainer(addedStack));
         if (recipe.isEmpty()) {
