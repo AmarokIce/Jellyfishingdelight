@@ -25,9 +25,11 @@ public abstract class CookingPotMixin {
     @Inject(method = "processCooking", at = @At("HEAD"), remap = false, cancellable = true)
     private void reProcessCooking(final CookingPotRecipe recipe, final CookingPotBlockEntity thiz, final CallbackInfoReturnable<Boolean> cir) {
         var world = thiz.getLevel();
+        var opt = thiz.getBlockState().getOptionalValue(CookingPotBlock.WATERLOGGED);
         if (Objects.isNull(world)
                 || world.isClientSide()
-                || !thiz.getBlockState().getValue(CookingPotBlock.WATERLOGGED)
+                || opt.isEmpty()
+                || !opt.get()
                 || !world.getBlockState(thiz.getBlockPos().below()).is(BlockList.GRILL.get())) {
             return;
         }

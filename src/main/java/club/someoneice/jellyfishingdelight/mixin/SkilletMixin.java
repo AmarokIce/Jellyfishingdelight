@@ -38,11 +38,10 @@ public abstract class SkilletMixin {
     @Inject(method = "cookingTick", at = @At("HEAD"), remap = false, cancellable = true)
     private static void reCookingTick(Level level, BlockPos pos, BlockState state, SkilletBlockEntity thiz, CallbackInfo ci) {
         var world = thiz.getLevel();
-
         var opt = thiz.getBlockState().getOptionalValue(SkilletBlock.WATERLOGGED);
-
         if (Objects.isNull(world)
-                || opt.isEmpty() || !opt.get()
+                || opt.isEmpty()
+                || !opt.get()
                 || !world.getBlockState(thiz.getBlockPos().below()).is(BlockList.GRILL.get())) {
             return;
         }
@@ -69,7 +68,8 @@ public abstract class SkilletMixin {
 
         var world = thiz.getLevel();
         if (Objects.isNull(world)
-                || opt.isEmpty() || !opt.get()
+                || opt.isEmpty()
+                || !opt.get()
                 || !world.getBlockState(thiz.getBlockPos().below()).is(BlockList.GRILL.get())) {
             return;
         }
