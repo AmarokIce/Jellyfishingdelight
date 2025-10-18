@@ -16,9 +16,6 @@
       "item": "minecraft:sugar"
     }
   ],
-  "container": {
-    "item": "minecraft:paper"
-  },
   "result": {
     "item": "jellyfishingdelight:seanut_chocolate"
   }

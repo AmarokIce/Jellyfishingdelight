@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"1": "jellyfishingdelight:block/krabby_patty_block",
-		"particle": "jellyfishingdelight:block/krabby_patty_block"
+		"1": "jellyfishingdelight:block/blue_jelly_krabby_patty_block",
+		"particle": "jellyfishingdelight:block/blue_jelly_krabby_patty_block"
 	},
 	"elements": [
 		{

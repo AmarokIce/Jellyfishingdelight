@@ -8,21 +8,21 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(ModMain.MODID)
 public final class ModMain {
-    public static final String MODID = "jellyfishingdelight";
+  public static final String MODID = "jellyfishingdelight";
 
-    public ModMain() {
-        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+  public ModMain(FMLJavaModLoadingContext context) {
+    final IEventBus modEventBus = context.getModEventBus();
 
-        TileList.TILES.register(modEventBus);
-        BlockList.BLOCKS.register(modEventBus);
-        ItemList.ITEMS.register(modEventBus);
-        ModTab.TABS.register(modEventBus);
+    TileList.TILES.register(modEventBus);
+    BlockList.BLOCKS.register(modEventBus);
+    ItemList.ITEMS.register(modEventBus);
+    ModTab.TABS.register(modEventBus);
 
-        modEventBus.register(this);
-    }
+    modEventBus.register(this);
+  }
 
-    @SubscribeEvent
-    public void clientRender(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(TileList.GRILL.get(), GrillRender::new);
-    }
+  @SubscribeEvent
+  public void clientRender(EntityRenderersEvent.RegisterRenderers event) {
+    event.registerBlockEntityRenderer(TileList.GRILL.get(), GrillRender::new);
+  }
 }

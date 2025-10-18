@@ -9,20 +9,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public final class Deepasta extends Item {
-    public Deepasta() {
-        super(new Properties().food(new FoodProperties.Builder().nutrition(4).saturationMod(0.2f).build()));
+  public Deepasta() {
+    super(new Properties().food(new FoodProperties.Builder().nutrition(4).saturationMod(0.2f).build()));
+  }
+
+  @Override
+  public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
+    if (level.isClientSide()) {
+      return super.finishUsingItem(stack, level, livingEntity);
     }
 
-    @Override
-    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
-        if (level.isClientSide()) {
-            return super.finishUsingItem(stack, level, livingEntity);
-        }
-
-        if (level.getRandom().nextDouble() < 0.5) {
-            livingEntity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 20 * 20));
-        }
-
-        return super.finishUsingItem(stack, level, livingEntity);
+    if (level.getRandom().nextDouble() < 0.5) {
+      livingEntity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 20 * 20));
     }
+
+    return super.finishUsingItem(stack, level, livingEntity);
+  }
 }

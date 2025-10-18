@@ -7,18 +7,19 @@ import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(BubbleWandItem.class)
 public abstract class BubbleItemMixin implements IForgeItem {
-    @Override
-    public boolean hasCraftingRemainingItem(ItemStack stack) {
-        return true;
+  @Override
+  public boolean hasCraftingRemainingItem(ItemStack stack) {
+    return true;
+  }
+
+  @Override
+  public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
+    if (!itemStack.isDamageableItem()) {
+      return itemStack.copy();
     }
 
-    @Override
-    public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
-        if (!itemStack.isDamageableItem()) {
-            return itemStack.copy();
-        }
-
-        itemStack.setDamageValue(itemStack.getDamageValue() + 1);
-        return itemStack.getDamageValue() >= itemStack.getMaxDamage() ? ItemStack.EMPTY : itemStack.copy();
-    }
+    itemStack.setDamageValue(itemStack.getDamageValue() + 1);
+    return itemStack.getDamageValue() >= itemStack.getMaxDamage() ? ItemStack.EMPTY :
+      itemStack.copy();
+  }
 }

@@ -9,15 +9,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public final class ItemStinkyPatty extends Item {
-    public ItemStinkyPatty() {
-        super(new Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.2F).build()));
-    }
+  public ItemStinkyPatty() {
+    super(new Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.2F).build()));
+  }
 
-    @Override
-    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
-        livingEntity.setHealth(livingEntity.getHealth() / 2);
-        livingEntity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 20 * 60 * 2, 0));
-        livingEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 20 * 10, 0));
-        return super.finishUsingItem(stack, level, livingEntity);
-    }
+  @Override
+  public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
+    livingEntity.setHealth(livingEntity.getHealth() / 2);
+    livingEntity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 20 * 60 * 2, 0));
+    livingEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 20 * 10, 0));
+    return super.finishUsingItem(stack, level, livingEntity);
+  }
 }

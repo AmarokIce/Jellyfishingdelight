@@ -16,57 +16,62 @@ import java.util.Objects;
 
 @Mixin(CookingPotBlockEntity.class)
 public abstract class CookingPotMixin {
-    @Shadow(remap = false) private int cookTime;
-    @Shadow(remap = false) private int cookTimeTotal;
-    @Shadow(remap = false) private ItemStack mealContainerStack;
+  @Shadow(remap = false)
+  private int cookTime;
+  @Shadow(remap = false)
+  private int cookTimeTotal;
+  @Shadow(remap = false)
+  private ItemStack mealContainerStack;
 
-    @Shadow(remap = false) protected abstract void ejectIngredientRemainder(ItemStack remainderStack);
+  @Shadow(remap = false)
+  protected abstract void ejectIngredientRemainder(ItemStack remainderStack);
 
-    @Inject(method = "processCooking", at = @At("HEAD"), remap = false, cancellable = true)
-    private void reProcessCooking(final CookingPotRecipe recipe, final CookingPotBlockEntity thiz, final CallbackInfoReturnable<Boolean> cir) {
-        var world = thiz.getLevel();
-        var opt = thiz.getBlockState().getOptionalValue(CookingPotBlock.WATERLOGGED);
-        if (Objects.isNull(world)
-                || world.isClientSide()
-                || opt.isEmpty()
-                || !opt.get()
-                || !world.getBlockState(thiz.getBlockPos().below()).is(BlockList.GRILL.get())) {
-            return;
-        }
-
-        this.cookTimeTotal = Mth.floor(recipe.getCookTime() * 0.7);
-        this.cookTime += 1;
-        if (this.cookTime < this.cookTimeTotal) {
-            cir.setReturnValue(false);
-            return;
-        }
-
-        this.cookTime = 0;
-        this.mealContainerStack = recipe.getOutputContainer();
-        ItemStack resultStack = recipe.getResultItem(world.registryAccess());
-        ItemStack storedMealStack = thiz.getInventory().getStackInSlot(6);
-
-        if (storedMealStack.isEmpty()) {
-            thiz.getInventory().setStackInSlot(6, resultStack.copy());
-        } else if (ItemStack.isSameItem(storedMealStack, resultStack)) {
-            storedMealStack.grow(resultStack.getCount());
-        }
-
-        thiz.setRecipeUsed(recipe);
-
-        for(int i = 0; i < 6; i++) {
-            ItemStack slotStack = thiz.getInventory().getStackInSlot(i);
-            if (slotStack.hasCraftingRemainingItem()) {
-                this.ejectIngredientRemainder(slotStack.getCraftingRemainingItem());
-            } else if (CookingPotBlockEntity.INGREDIENT_REMAINDER_OVERRIDES.containsKey(slotStack.getItem())) {
-                this.ejectIngredientRemainder((CookingPotBlockEntity.INGREDIENT_REMAINDER_OVERRIDES.get(slotStack.getItem())).getDefaultInstance());
-            }
-
-            if (!slotStack.isEmpty()) {
-                slotStack.shrink(1);
-            }
-        }
-
-        cir.setReturnValue(true);
+  @Inject(method = "processCooking", at = @At("HEAD"), remap = false, cancellable = true)
+  private void reProcessCooking(final CookingPotRecipe recipe, final CookingPotBlockEntity thiz,
+                                final CallbackInfoReturnable<Boolean> cir) {
+    var world = thiz.getLevel();
+    var opt = thiz.getBlockState().getOptionalValue(CookingPotBlock.WATERLOGGED);
+    if (Objects.isNull(world)
+      || world.isClientSide()
+      || opt.isEmpty()
+      || !opt.get()
+      || !world.getBlockState(thiz.getBlockPos().below()).is(BlockList.GRILL.get())) {
+      return;
     }
+
+    this.cookTimeTotal = Mth.floor(recipe.getCookTime() * 0.7);
+    this.cookTime += 1;
+    if (this.cookTime < this.cookTimeTotal) {
+      cir.setReturnValue(false);
+      return;
+    }
+
+    this.cookTime = 0;
+    this.mealContainerStack = recipe.getOutputContainer();
+    ItemStack resultStack = recipe.getResultItem(world.registryAccess());
+    ItemStack storedMealStack = thiz.getInventory().getStackInSlot(6);
+
+    if (storedMealStack.isEmpty()) {
+      thiz.getInventory().setStackInSlot(6, resultStack.copy());
+    } else if (ItemStack.isSameItem(storedMealStack, resultStack)) {
+      storedMealStack.grow(resultStack.getCount());
+    }
+
+    thiz.setRecipeUsed(recipe);
+
+    for (int i = 0; i < 6; i++) {
+      ItemStack slotStack = thiz.getInventory().getStackInSlot(i);
+      if (slotStack.hasCraftingRemainingItem()) {
+        this.ejectIngredientRemainder(slotStack.getCraftingRemainingItem());
+      } else if (CookingPotBlockEntity.INGREDIENT_REMAINDER_OVERRIDES.containsKey(slotStack.getItem())) {
+        this.ejectIngredientRemainder((CookingPotBlockEntity.INGREDIENT_REMAINDER_OVERRIDES.get(slotStack.getItem())).getDefaultInstance());
+      }
+
+      if (!slotStack.isEmpty()) {
+        slotStack.shrink(1);
+      }
+    }
+
+    cir.setReturnValue(true);
+  }
 }

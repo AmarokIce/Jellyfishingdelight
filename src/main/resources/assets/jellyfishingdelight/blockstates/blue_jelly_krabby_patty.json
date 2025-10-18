@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "bites=0": {
+      "model": "jellyfishingdelight:block/blue_jelly_krabby_patty_block"
+    },
+    "bites=1": {
+      "model": "jellyfishingdelight:block/blue_jelly_krabby_patty_block_0"
+    },
+    "bites=2": {
+      "model": "jellyfishingdelight:block/blue_jelly_krabby_patty_block_1"
+    },
+    "bites=3": {
+      "model": "jellyfishingdelight:block/blue_jelly_krabby_patty_block_2"
+    }
+  }
+}

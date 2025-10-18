@@ -31,72 +31,75 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public final class ColorfulKrabbyPattys extends Block implements SimpleWaterloggedBlock {
-    public static final IntegerProperty COLOR = IntegerProperty.create("color", 0, 6);
-    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+  public static final IntegerProperty COLOR = IntegerProperty.create("color", 0, 6);
+  public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public static final ImmutableList<Supplier<Item>> KRABBY_PATTYS = ImmutableList.of(
-            ItemList.PURPLE_KRABBY_PATTY,
-            ItemList.BLUE_KRABBY_PATTY,
-            ItemList.GREEN_KRABBY_PATTY,
-            ItemList.YELLOW_KRABBY_PATTY,
-            ItemList.ORANGE_KRABBY_PATTY,
-            ItemList.RED_KRABBY_PATTY
-    );
+  public static final ImmutableList<Supplier<Item>> KRABBY_PATTYS = ImmutableList.of(
+    ItemList.PURPLE_KRABBY_PATTY,
+    ItemList.BLUE_KRABBY_PATTY,
+    ItemList.GREEN_KRABBY_PATTY,
+    ItemList.YELLOW_KRABBY_PATTY,
+    ItemList.ORANGE_KRABBY_PATTY,
+    ItemList.RED_KRABBY_PATTY
+  );
 
-    public ColorfulKrabbyPattys() {
-        super(Properties.copy(Blocks.CAKE).noOcclusion());
-        this.registerDefaultState(this.defaultBlockState()
-                .setValue(COLOR, 6)
-                .setValue(WATERLOGGED, false));
+  public ColorfulKrabbyPattys() {
+    super(Properties.copy(Blocks.CAKE).noOcclusion());
+    this.registerDefaultState(this.defaultBlockState()
+      .setValue(COLOR, 6)
+      .setValue(WATERLOGGED, false));
+  }
+
+  @Override
+  public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+    Level level = pContext.getLevel();
+    FluidState fluid = level.getFluidState(pContext.getClickedPos());
+    return super.getStateForPlacement(pContext).setValue(WATERLOGGED,
+      fluid.getType() == Fluids.WATER);
+  }
+
+  @Override
+  protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+    pBuilder.add(COLOR, WATERLOGGED);
+  }
+
+  @Override
+  public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer,
+                               InteractionHand pHand, BlockHitResult pHit) {
+    if (pLevel.isClientSide()) {
+      return InteractionResult.sidedSuccess(true);
     }
 
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        Level level = pContext.getLevel();
-        FluidState fluid = level.getFluidState(pContext.getClickedPos());
-        return super.getStateForPlacement(pContext).setValue(WATERLOGGED, fluid.getType() == Fluids.WATER);
+    int color = pState.getValue(COLOR);
+    if (color == 0) {
+      pPlayer.addItem(Items.BOWL.getDefaultInstance());
+      pLevel.removeBlock(pPos, false);
+    } else {
+      pPlayer.addItem(KRABBY_PATTYS.get(--color).get().getDefaultInstance());
+      pLevel.setBlock(pPos, pState.setValue(COLOR, color), Block.UPDATE_CLIENTS);
     }
 
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(COLOR, WATERLOGGED);
+    return InteractionResult.SUCCESS;
+  }
+
+  @Override
+  public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pParams) {
+    List<ItemStack> drops = super.getDrops(pState, pParams);
+    int color = pState.getValue(COLOR);
+    for (int i = 0; i <= color; i++) {
+      drops.add(KRABBY_PATTYS.get(i).get().getDefaultInstance());
     }
+    return drops;
+  }
 
-    @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (pLevel.isClientSide()) {
-            return InteractionResult.sidedSuccess(true);
-        }
+  @Override
+  public FluidState getFluidState(BlockState state) {
+    return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+  }
 
-        int color = pState.getValue(COLOR);
-        if (color == 0) {
-            pPlayer.addItem(Items.BOWL.getDefaultInstance());
-            pLevel.removeBlock(pPos, false);
-        } else {
-            pPlayer.addItem(KRABBY_PATTYS.get(--color).get().getDefaultInstance());
-            pLevel.setBlock(pPos, pState.setValue(COLOR, color), Block.UPDATE_CLIENTS);
-        }
-
-        return InteractionResult.SUCCESS;
-    }
-
-    @Override
-    public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pParams) {
-        List<ItemStack> drops = super.getDrops(pState, pParams);
-        int color = pState.getValue(COLOR);
-        for (int i = 0; i <= color; i++) {
-            drops.add(KRABBY_PATTYS.get(i).get().getDefaultInstance());
-        }
-        return drops;
-    }
-
-    @Override
-    public FluidState getFluidState(BlockState state) {
-        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
-    }
-
-    @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return box(1f, 0.0f, 1f, 15f, 6, 15f);
-    }
+  @Override
+  public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos,
+                             CollisionContext pContext) {
+    return box(1f, 0.0f, 1f, 15f, 6, 15f);
+  }
 }
