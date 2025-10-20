@@ -1,6 +1,6 @@
 {
-    "parent": "minecraft:item/generated",
-    "textures": {
-        "layer0": "jellyfishingdelight:item/mini_krabby_patty"
-    }
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jellyfishingdelight:item/mini_krabby_patty"
+  }
 }

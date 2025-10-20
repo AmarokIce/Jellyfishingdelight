@@ -1,6 +1,5 @@
 {
   "item_group.jellyfishingdelight": "抓水母乐事",
-
   "item.jellyfishingdelight.lantern_plant_stick": "灯笼植物串",
   "item.jellyfishingdelight.coral_plant_stick": "珊瑚植物串",
   "item.jellyfishingdelight.tube_plant_stick": "管状植物串",
@@ -34,7 +33,23 @@
   "item.jellyfishingdelight.chrome_knife": "铬金属刀",
   "block.jellyfishingdelight.colorful_krabby_pattys": "缤纷蟹黄堡组",
   "block.jellyfishingdelight.krabby_patty": "蟹黄堡",
-  "block.jellyfishingdelight.grill": "扒炉"
+  "block.jellyfishingdelight.grill": "扒炉",
+
+  "item.jellyfishingdelight.children_krabby_patty": "儿童套餐蟹黄堡",
+  "item.jellyfishingdelight.mini_jelly_krabby_patty": "迷你水母酱蟹黄堡",
+  "item.jellyfishingdelight.mini_blue_jelly_krabby_patty": "迷你蓝色水母酱蟹黄堡",
+  "item.jellyfishingdelight.jelly_pudding": "水母布丁",
+  "item.jellyfishingdelight.blue_jelly_pudding": "蓝色水母布丁",
+  "item.jellyfishingdelight.bubble_pudding": "泡泡布丁",
+  "item.jellyfishingdelight.milk_pudding": "牛奶布丁",
+  "item.jellyfishingdelight.jumper_jelly_pudding": "跳跳布丁",
+  "item.jellyfishingdelight.grease_pudding": "油脂布丁",
+  "item.jellyfishingdelight.seanut_pudding": "花生布丁",
+  "item.jellyfishingdelight.yellow_sponge_popsicle": "黄色海绵棒冰",
+  "item.jellyfishingdelight.cyan_squid_popsicle": "青色鱿鱼棒冰",
+  "item.jellyfishingdelight.pink_starfish_popsicle": "粉色海星棒冰",
+  "item.jellyfishingdelight.ink_drink": "墨汁饮料",
+  "block.jellyfishingdelight.fish_tank": "鱼缸"
 }
 
 

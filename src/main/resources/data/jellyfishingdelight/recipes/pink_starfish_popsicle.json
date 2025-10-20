@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " DD",
+    "ICD",
+    "SI "
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:pink_dye"
+    },
+    "C": {
+      "item": "minecraft:lime_dye"
+    },
+    "I": {
+      "item": "minecraft:ice"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "jellyfishingdelight:pink_starfish_popsicle",
+    "count": 1
+  }
+}

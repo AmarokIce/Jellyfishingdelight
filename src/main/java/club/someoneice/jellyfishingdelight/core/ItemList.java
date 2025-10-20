@@ -1,9 +1,6 @@
 package club.someoneice.jellyfishingdelight.core;
 
-import club.someoneice.jellyfishingdelight.item.Deepasta;
-import club.someoneice.jellyfishingdelight.item.DeepastadWithLanternPlantChop;
-import club.someoneice.jellyfishingdelight.item.ItemStinkyPatty;
-import club.someoneice.jellyfishingdelight.item.Knife;
+import club.someoneice.jellyfishingdelight.item.*;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -112,49 +109,108 @@ public final class ItemList {
   public static final RegistryObject<Item> CHUMSTICK =
     ITEMS.register("chumstick",
       () -> simpleFood(6, 0.4f,
-      new MobEffectInstance(MobEffects.WEAKNESS, 20 * 60, 0)));
+        new MobEffectInstance(MobEffects.WEAKNESS, 20 * 60, 0)));
   public static final RegistryObject<Item> DEEPASTA =
     ITEMS.register("deepasta", Deepasta::new);
   public static final RegistryObject<Item> DEEPASTA_WITH_LANTERN_PLANT_CHOP =
     ITEMS.register("deepasta_with_lantern_plant_chop", DeepastadWithLanternPlantChop::new);
   public static final RegistryObject<Item> CROAL_STEW =
     ITEMS.register("croal_stew",
-    () -> simpleFood(12, 0.8f, Items.BOWL.getDefaultInstance(),
-      new MobEffectInstance(MobEffects.GLOWING, 20 * 30, 0),
-      new MobEffectInstance(MobEffects.NIGHT_VISION, 20 * 60 * 3, 0),
-      new MobEffectInstance(ModEffects.NOURISHMENT.get(), 20 * 60 * 5, 0)));
+      () -> simpleFood(12, 0.8f, Items.BOWL.getDefaultInstance(),
+        new MobEffectInstance(MobEffects.GLOWING, 20 * 30, 0),
+        new MobEffectInstance(MobEffects.NIGHT_VISION, 20 * 60 * 3, 0),
+        new MobEffectInstance(ModEffects.NOURISHMENT.get(), 20 * 60 * 5, 0)));
   public static final RegistryObject<Item> ROCK_STEW =
     ITEMS.register("rock_stew",
       () -> simpleFood(12, 0.8f, Items.BOWL.getDefaultInstance(),
-      new MobEffectInstance(MobEffects.DARKNESS, 20 * 30, 0),
-      new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20 * 60 * 3, 0),
-      new MobEffectInstance(ModEffects.NOURISHMENT.get(), 20 * 60 * 5, 0)));
+        new MobEffectInstance(MobEffects.DARKNESS, 20 * 30, 0),
+        new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20 * 60 * 3, 0),
+        new MobEffectInstance(ModEffects.NOURISHMENT.get(), 20 * 60 * 5, 0)));
   public static final RegistryObject<Item> PINEAPPLE_STICK =
     ITEMS.register("pineapple_stick",
-    () -> simpleFood(6, 0.3f, Items.STICK.getDefaultInstance()));
+      () -> simpleFood(6, 0.3f, Items.STICK.getDefaultInstance()));
   public static final RegistryObject<Item> PINEAPPLE_SODA =
     ITEMS.register("pineapple_soda",
-    () -> simpleFood(6, 0.6f, Items.GLASS_BOTTLE.getDefaultInstance()));
+      () -> simpleFood(6, 0.6f, Items.GLASS_BOTTLE.getDefaultInstance()));
   public static final RegistryObject<Item> PINEAPPLE_BUN =
     ITEMS.register("pineapple_bun",
-    () -> simpleFood(8, 1.0f));
+      () -> simpleFood(8, 1.0f));
   public static final RegistryObject<Item> SEANUT_CHOCOLATE =
     ITEMS.register("seanut_chocolate",
-    () -> simpleFood(8, 1.0f));
+      () -> simpleFood(8, 1.0f));
   public static final RegistryObject<Item> SCRAP_METAL_KNIFE =
     ITEMS.register("scrap_metal_knife"
-    , Knife::getScrapMetal);
+      , Knife::getScrapMetal);
   public static final RegistryObject<Item> CHROME_METAL_KNIFE =
     ITEMS.register("chrome_knife",
-    Knife::getChromeMetal);
+      Knife::getChromeMetal);
   public static final RegistryObject<Item> COLORFUL_KRABBY_PATTY =
     ITEMS.register(
-    "colorful_krabby_pattys",
-    () -> new BlockItem(BlockList.COLORFUL_KRABBY_PATTYS.get(),
-      new Item.Properties()));
+      "colorful_krabby_pattys",
+      () -> new BlockItem(BlockList.COLORFUL_KRABBY_PATTYS.get(),
+        new Item.Properties()));
   public static final RegistryObject<Item> GRILL =
     ITEMS.register("grill",
-    () -> new BlockItem(BlockList.GRILL.get(), new Item.Properties()));
+      () -> new BlockItem(BlockList.GRILL.get(), new Item.Properties()));
+
+  public static final RegistryObject<Item> PUDDING =
+    ITEMS.register("jelly_pudding",
+      () -> simpleFood(6, 1.2f,
+        new MobEffectInstance(MobEffects.REGENERATION, 20 * 20)));
+  public static final RegistryObject<Item> BLUE_PUDDING =
+    ITEMS.register("blue_jelly_pudding",
+      () -> simpleFood(6, 1.2f,
+        new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20 * 20, 1)));
+  public static final RegistryObject<Item> BUBBLE_PUDDING =
+    ITEMS.register("bubble_pudding",
+      () -> simpleFood(6, 1.2f,
+        new MobEffectInstance(MobEffects.LEVITATION, 20 * 20)));
+  public static final RegistryObject<Item> MILK_PUDDING =
+    ITEMS.register("milk_pudding", ItemList::milkPudding);
+  public static final RegistryObject<Item> JUMPER_JELLY_PUDDING =
+    ITEMS.register("jumper_jelly_pudding",
+      () -> simpleFood(6, 1.2f,
+        new MobEffectInstance(MobEffects.JUMP, 20 * 20, 1)));
+  public static final RegistryObject<Item> GREASE_PUDDING =
+    ITEMS.register("grease_pudding",
+      () -> simpleFood(6, 1.2f,
+        new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20 * 20, 2),
+        new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 20, 3)));
+  public static final RegistryObject<Item> SEANUT_PUDDING =
+    ITEMS.register("seanut_pudding",
+      () -> simpleFood(6, 1.2f,
+        new MobEffectInstance(ModEffects.NOURISHMENT.get(), 20 * 20)));
+
+  public static final RegistryObject<Item> YELLOW_SPONGE_POPSICLE =
+    ITEMS.register("yellow_sponge_popsicle",
+      () -> simpleFood(2, 0.8f,
+        new MobEffectInstance(MobEffects.CONDUIT_POWER, 20 * 60),
+        new MobEffectInstance(MobEffects.LUCK, 20 * 60, 4),
+        new MobEffectInstance(ModEffects.NOURISHMENT.get(), 20 * 60)
+      ));
+  public static final RegistryObject<Item> CYAN_SQUID_POPSICLE =
+    ITEMS.register("cyan_squid_popsicle",
+      () -> simpleFood(2, 0.8f,
+        new MobEffectInstance(MobEffects.CONDUIT_POWER, 20 * 20),
+        new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 60, 3),
+        new MobEffectInstance(ModEffects.COMFORT.get(), 20 * 60)
+      ));
+  public static final RegistryObject<Item> PINK_STARFISH_POPSICLE =
+    ITEMS.register("pink_starfish_popsicle",
+      () -> simpleFood(2, 0.8f,
+        new MobEffectInstance(MobEffects.CONDUIT_POWER, 20 * 60),
+        new MobEffectInstance(MobEffects.UNLUCK, 20 * 60, 4),
+        new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 60, 3)
+      ));
+
+  public static final RegistryObject<Item> INK_DRINK =
+    ITEMS.register("ink_drink",
+      () -> simpleFood(5, 0.0f, false, false, true,
+        Items.GLASS_BOTTLE.getDefaultInstance(),
+        new MobEffectInstance(MobEffects.BLINDNESS, 20 * 3)));
+
+  public static final RegistryObject<Item> FISH_TANK =
+    ITEMS.register("fish_tank", FishTankItem::new);
 
   private static Item simpleFood(int hunger, float saturation, MobEffectInstance... effects) {
     return simpleFood(hunger, saturation, false, false, effects);
@@ -227,6 +283,32 @@ public final class ItemList {
       @Override
       public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
         return this.hasCraftingRemainingItem(itemStack) ? bowl : ItemStack.EMPTY;
+      }
+    };
+  }
+
+  public static Item milkPudding() {
+    return new Item(new Item.Properties().food(
+      new FoodProperties.Builder()
+        .nutrition(6)
+        .saturationMod(1.2f)
+        .build())) {
+      @Override
+      @NotNull
+      public ItemStack finishUsingItem(final @NotNull ItemStack stack, final @NotNull Level level,
+                                       final @NotNull LivingEntity livingEntity) {
+        if (level.isClientSide()) {
+          return super.finishUsingItem(stack, level, livingEntity);
+        }
+
+        livingEntity.removeAllEffects();
+        return super.finishUsingItem(stack, level, livingEntity);
+      }
+
+      @Override
+      @NotNull
+      public UseAnim getUseAnimation(@NotNull final ItemStack stack) {
+        return UseAnim.EAT;
       }
     };
   }

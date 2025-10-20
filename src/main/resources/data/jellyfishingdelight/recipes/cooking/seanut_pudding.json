@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "tag": "jellyfishing:roasted_seanut"
+    }
+  ],
+  "result": {
+    "item": "jellyfishingdelight:seanut_pudding",
+    "count": 1
+  }
+}

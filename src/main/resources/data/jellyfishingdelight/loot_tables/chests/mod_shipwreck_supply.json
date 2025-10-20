@@ -1,0 +1,35 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 3
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "jellyfishingdelight:stinky_patty",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1,
+              "add": false,
+              "conditions": []
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "jellyfishingdelight:children_krabby_patty",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "jellyfishing:gelatinous_milk"
+    }
+  ],
+  "result": {
+    "item": "jellyfishingdelight:milk_pudding",
+    "count": 1
+  }
+}

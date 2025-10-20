@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " DD",
+    "ICD",
+    "SI "
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:cyan_dye"
+    },
+    "C": {
+      "item": "minecraft:brown_dye"
+    },
+    "I": {
+      "item": "minecraft:ice"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "jellyfishingdelight:cyan_squid_popsicle",
+    "count": 1
+  }
+}

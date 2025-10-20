@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "jellyfishingdelight:jelly_krabby_patty"
+    }
+  ],
+  "result": [
+    {
+      "item": "jellyfishingdelight:mini_jelly_krabby_patty",
+      "count": 4
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

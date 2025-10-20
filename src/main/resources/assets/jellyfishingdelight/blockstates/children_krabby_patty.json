@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "jellyfishingdelight:block/children_krabby_patty_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "jellyfishingdelight:block/children_krabby_patty_block"
+    },
+    "facing=south": {
+      "model": "jellyfishingdelight:block/children_krabby_patty_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jellyfishingdelight:block/children_krabby_patty_block",
+      "y": 270
+    }
+  }
+}

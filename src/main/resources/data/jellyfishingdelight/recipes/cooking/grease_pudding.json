@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "jellyfishing:grease_ball"
+    }
+  ],
+  "result": {
+    "item": "jellyfishingdelight:grease_pudding",
+    "count": 1
+  }
+}

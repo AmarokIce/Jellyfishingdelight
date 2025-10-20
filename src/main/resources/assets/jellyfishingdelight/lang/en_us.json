@@ -1,6 +1,5 @@
 {
   "item_group.jellyfishingdelight": "Jellyfishing Delight",
-
   "item.jellyfishingdelight.lantern_plant_stick": "Lantern Plant Stick",
   "item.jellyfishingdelight.coral_plant_stick": "Coral Plant Stick",
   "item.jellyfishingdelight.tube_plant_stick": "Tube Plant Stick",
@@ -20,7 +19,7 @@
   "item.jellyfishingdelight.raw_krabby_patty_patty": "Red Patty Patty",
   "item.jellyfishingdelight.krabby_patty_patty": "Cooked Patty Patty",
   "item.jellyfishingdelight.stinky_patty": "Stinky Patty",
-  "item.jellyfishingdelight.chum_bucket": "Chum Bucket",
+  "item.jellyfishingdelight.chum_bucket": "Chum Bucaket",
   "item.jellyfishingdelight.chumstick": "Chumstick",
   "item.jellyfishingdelight.deepasta": "Deepasta",
   "item.jellyfishingdelight.deepasta_with_lantern_plant_chop": "Deepasta with Lantern Plant Chop",
@@ -34,7 +33,22 @@
   "item.jellyfishingdelight.chrome_knife": "Chrome Knife",
   "block.jellyfishingdelight.colorful_krabby_pattys": "Colorful Krabby Patties",
   "block.jellyfishingdelight.krabby_patty": "Krabby Pattys",
-  "block.jellyfishingdelight.grill": "Grill"
+  "block.jellyfishingdelight.grill": "Grill",
+  "item.jellyfishingdelight.children_krabby_patty": "Children Krabby Patty",
+  "item.jellyfishingdelight.mini_jelly_krabby_patty": "Mini Jelly Krabby Patty",
+  "item.jellyfishingdelight.mini_blue_jelly_krabby_patty": "Mini Blue Jelly Krabby Patty",
+  "item.jellyfishingdelight.jelly_pudding": "Jelly Pudding",
+  "item.jellyfishingdelight.blue_jelly_pudding": "Blue Jelly Pudding",
+  "item.jellyfishingdelight.bubble_pudding": "Bubble Pudding",
+  "item.jellyfishingdelight.milk_pudding": "Milk Pudding",
+  "item.jellyfishingdelight.jumper_jelly_pudding": "Jumper Jelly Pudding",
+  "item.jellyfishingdelight.grease_pudding": "Grease Pudding",
+  "item.jellyfishingdelight.seanut_pudding": "Seanut Pudding",
+  "item.jellyfishingdelight.yellow_sponge_popsicle": "Yellow Sponge Popsicle",
+  "item.jellyfishingdelight.cyan_squid_popsicle": "Cyan Squid Popsicle",
+  "item.jellyfishingdelight.pink_starfish_popsicle": "Pink Starfish Popsicle",
+  "item.jellyfishingdelight.ink_drink": "Ink Drink",
+  "block.jellyfishingdelight.fish_tank": "Fish Tank"
 }
 
 

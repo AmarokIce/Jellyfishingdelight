@@ -82,7 +82,8 @@ public final class ModEvent {
   private static final Map<Supplier<Item>, Supplier<Block>> krabbyPattyItems = Map.of(
     ModItems.KRABBY_PATTY, BlockList.KRABBY_PATTY,
     ItemList.JELLY_KRABBY_PATTY, BlockList.JELLY_KRABBY_PATTY,
-    ItemList.BLUE_JELLY_KRABBY_PATTY, BlockList.BLUE_JELLY_KRABBY_PATTY
+    ItemList.BLUE_JELLY_KRABBY_PATTY, BlockList.BLUE_JELLY_KRABBY_PATTY,
+    ItemList.CHILDREN_KRABBY_PATTY, BlockList.CHILDREN_KRABBY_PATTY
   );
 
   private static void putKrabbyPatty(final Level world, final BlockPos pos, final Player player,

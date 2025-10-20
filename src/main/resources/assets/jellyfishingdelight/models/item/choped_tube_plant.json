@@ -1,6 +1,6 @@
 {
-    "parent": "minecraft:item/generated",
-    "textures": {
-        "layer0": "jellyfishingdelight:item/choped_tube_plant"
-    }
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jellyfishingdelight:item/choped_tube_plant"
+  }
 }

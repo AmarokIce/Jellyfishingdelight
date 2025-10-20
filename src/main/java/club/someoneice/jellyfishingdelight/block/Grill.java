@@ -55,28 +55,6 @@ public final class Grill extends BaseEntityBlock {
   }
 
   @Override
-  public BlockState getStateForPlacement(BlockPlaceContext context) {
-    return this.defaultBlockState().setValue(FACING,
-      context.getHorizontalDirection().getOpposite());
-  }
-
-  @Override
-  protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-    super.createBlockStateDefinition(builder);
-    builder.add(FACING);
-  }
-
-  @Override
-  public BlockState rotate(BlockState pState, Rotation pRot) {
-    return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
-  }
-
-  @Override
-  public BlockState mirror(BlockState pState, Mirror pMirror) {
-    return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
-  }
-
-  @Override
   public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player,
                                      boolean willHarvest, FluidState fluid) {
     if (level.getBlockEntity(pos) instanceof GrillTile tile) {
@@ -109,6 +87,28 @@ public final class Grill extends BaseEntityBlock {
                                                                           BlockState pState,
                                                                           BlockEntityType<T> pBlockEntityType) {
     return createTickerHelper(pBlockEntityType, TileList.GRILL.get(), GrillTile::cookingTick);
+  }
+
+  @Override
+  public BlockState getStateForPlacement(BlockPlaceContext context) {
+    return this.defaultBlockState().setValue(FACING,
+      context.getHorizontalDirection().getOpposite());
+  }
+
+  @Override
+  protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+    super.createBlockStateDefinition(builder);
+    builder.add(FACING);
+  }
+
+  @Override
+  public BlockState rotate(BlockState pState, Rotation pRot) {
+    return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
+  }
+
+  @Override
+  public BlockState mirror(BlockState pState, Mirror pMirror) {
+    return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
   }
 
   @Override

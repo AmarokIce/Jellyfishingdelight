@@ -1,6 +1,6 @@
 {
-    "parent": "minecraft:item/generated",
-    "textures": {
-        "layer0": "jellyfishingdelight:item/croal_stew"
-    }
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jellyfishingdelight:item/croal_stew"
+  }
 }

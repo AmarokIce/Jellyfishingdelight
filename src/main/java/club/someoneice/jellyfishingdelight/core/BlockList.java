@@ -1,9 +1,7 @@
 package club.someoneice.jellyfishingdelight.core;
 
 import blueduck.jellyfishing.registry.ModItems;
-import club.someoneice.jellyfishingdelight.block.ColorfulKrabbyPattys;
-import club.someoneice.jellyfishingdelight.block.Grill;
-import club.someoneice.jellyfishingdelight.block.KrabbyPatty;
+import club.someoneice.jellyfishingdelight.block.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -28,4 +26,7 @@ public final class BlockList {
   public static final RegistryObject<Block> COLORFUL_KRABBY_PATTYS = BLOCKS.register(
     "colorful_krabby_pattys", ColorfulKrabbyPattys::new);
   public static final RegistryObject<Block> GRILL = BLOCKS.register("grill", Grill::new);
+  public static final RegistryObject<Block> FISH_TANK = BLOCKS.register("fish_tank", FishTank::new);
+  public static final RegistryObject<Block> CHILDREN_KRABBY_PATTY =
+    BLOCKS.register("children_krabby_patty", ChildrenKrabbyPatty::new);
 }

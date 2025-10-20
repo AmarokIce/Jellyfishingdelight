@@ -1,6 +1,6 @@
 {
-    "parent": "minecraft:item/handheld",
-    "textures": {
-        "layer0": "jellyfishingdelight:item/scrap_metal_knife"
-    }
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "jellyfishingdelight:item/scrap_metal_knife"
+  }
 }
