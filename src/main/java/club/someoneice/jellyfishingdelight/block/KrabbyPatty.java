@@ -1,6 +1,7 @@
 package club.someoneice.jellyfishingdelight.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -54,6 +55,14 @@ public final class KrabbyPatty extends Block implements SimpleWaterloggedBlock {
     this.mini_burger = mini_burger;
   }
 
+  private static void onBiteOrCut(Level world, BlockState state, BlockPos pos) {
+    int bites = state.getValue(BITES) + 1;
+    if (bites > 3) {
+      world.removeBlock(pos, false);
+    }
+    world.setBlock(pos, state.setValue(BITES, bites), 2);
+  }
+
   @Override
   public BlockState getStateForPlacement(BlockPlaceContext pContext) {
     Level level = pContext.getLevel();
@@ -74,36 +83,26 @@ public final class KrabbyPatty extends Block implements SimpleWaterloggedBlock {
       return InteractionResult.SUCCESS;
     }
 
-
     final var holdItem = pPlayer.getItemInHand(pHand);
-    if (holdItem.is(ModTags.KNIVES)) {
-      final var stack = new ItemStack(this.mini_burger.get());
-      stack.hurtAndBreak(1, pPlayer, (it) ->
-        it.broadcastBreakEvent(pHand));
-      if (pPlayer.addItem(stack)) {
-        return InteractionResult.SUCCESS;
-      }
-
-      final var entity = new ItemEntity(pLevel,
-        pPos.getX(), pPos.getY() + 0.5, pPos.getZ(), stack);
-      entity.setDefaultPickUpDelay();
-      pLevel.addFreshEntity(entity);
+    if (!holdItem.is(ModTags.KNIVES)) {
+      pPlayer.eat(pLevel, mini_burger.get().getDefaultInstance());
+      onBiteOrCut(pLevel, pState, pPos);
       return InteractionResult.SUCCESS;
     }
 
-    pPlayer.eat(pLevel, mini_burger.get().getDefaultInstance());
-    int bites = pState.getValue(BITES) + 1;
-    if (bites > 3) {
-      pLevel.removeBlock(pPos, false);
-      pLevel.gameEvent(GameEvent.BLOCK_DESTROY, pPos,
-        GameEvent.Context.of(pState));
-      return InteractionResult.SUCCESS;
+    final var stack = new ItemStack(this.mini_burger.get());
+    holdItem.setDamageValue(holdItem.getDamageValue() + 1);
+    if (holdItem.getDamageValue() > holdItem.getMaxDamage()) {
+      stack.shrink(1);
+      pPlayer.awardStat(Stats.ITEM_BROKEN.get(holdItem.getItem()));
     }
 
-    pLevel.setBlockAndUpdate(pPos, pState.setValue(BITES, bites));
-    pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos,
-      GameEvent.Context.of(pState));
+    final var entity = new ItemEntity(pLevel,
+      pPos.getX(), pPos.getY() + 0.5, pPos.getZ(), stack);
+    entity.setDefaultPickUpDelay();
+    pLevel.addFreshEntity(entity);
 
+    onBiteOrCut(pLevel, pState, pPos);
     return InteractionResult.SUCCESS;
   }
 

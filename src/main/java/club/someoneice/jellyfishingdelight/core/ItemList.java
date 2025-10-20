@@ -192,15 +192,15 @@ public final class ItemList {
     ITEMS.register("cyan_squid_popsicle",
       () -> simpleFood(2, 0.8f,
         new MobEffectInstance(MobEffects.CONDUIT_POWER, 20 * 20),
-        new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 60, 3),
-        new MobEffectInstance(ModEffects.COMFORT.get(), 20 * 60)
+        new MobEffectInstance(MobEffects.UNLUCK, 20 * 60, 4),
+        new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 60, 3)
       ));
   public static final RegistryObject<Item> PINK_STARFISH_POPSICLE =
     ITEMS.register("pink_starfish_popsicle",
       () -> simpleFood(2, 0.8f,
         new MobEffectInstance(MobEffects.CONDUIT_POWER, 20 * 60),
-        new MobEffectInstance(MobEffects.UNLUCK, 20 * 60, 4),
-        new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 60, 3)
+                new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 60, 3),
+        new MobEffectInstance(ModEffects.COMFORT.get(), 20 * 60)
       ));
 
   public static final RegistryObject<Item> INK_DRINK =
